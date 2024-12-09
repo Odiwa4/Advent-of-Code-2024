@@ -1,5 +1,6 @@
 import os
-path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"day-2 input.txt")
+#gotta love vs code making you tell it the actual file path
+path = os.path.join(os.path.dirname(__file__),"day-2 input.txt")
 
 reports = []
 with open (path, 'r') as d:
@@ -18,7 +19,6 @@ def GetWrong(report):
     for i in range(len(report)):
         if (i == len(report) - 1):
             break
-        
         #all increasing / all decreasing
         difference = report[i] - report[i+1]
         if (difference > 3 or difference < -3 or difference == 0):
@@ -35,7 +35,6 @@ def GetWrong(report):
 
 def CheckSafe(report):
     wrong = GetWrong(report)
-    print(wrong)
     for i in range(len(wrong)):
         newList = []
         for x in range(len(report)):
@@ -51,13 +50,10 @@ def CheckSafe(report):
         return True
     else:
         return False
-    
-#print(CheckSafe([48, 46, 47, 49, 51, 54, 56]))
 
 safeCount = 0
 for r in range(len(reports)):
    if (CheckSafe(reports[r]) == True):
-        #print("SAFE" + str(r + 1))
         safeCount += 1
 
 print(safeCount)

@@ -35,7 +35,6 @@ print(CheckSafe([1, 3, 6, 7, 8]))
 safeCount = 0
 for r in range(len(reports)):
    if (CheckSafe(reports[r]) == True):
-        #print("SAFE" + str(r + 1))
         safeCount += 1
 
 print(safeCount)
