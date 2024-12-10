@@ -10,7 +10,7 @@ newObstanceSpots = []
 direction = 0
 directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
 
-attemptsToFail = 100
+attemptsToFail = 500
 
 with open (path, 'r') as d:
     lines = d.readlines()
