@@ -1,5 +1,6 @@
 import os
 import heapq
+import time
 from collections import deque
 
 import colored
@@ -22,29 +23,17 @@ directions = [(0, -1), (-1, 0), (0, 1), (1, 0)]
 def AddTuple(a, b):
     return (a[0] + b[0], a[1] + b[1])
 
-def GetNextDirection(index, offset):
-    if offset == -1:
-        if index > 0:
-            return index - 1
-        else:
-            return 3
-    else:
-        if index < 3:
-            return index + 1
-        else:
-            return 0
-
 def IsInRange(pos):
     return 0 <= pos[0] < width and 0 <= pos[1] < height
 
-for i in range(3451):
-    print(i)
-    currentCorruptedTiles = corruptedTiles[:1024+i]
-    print(currentCorruptedTiles[len(currentCorruptedTiles)-1])
+currentCorruptedTiles = set(corruptedTiles.copy()[:1024])
+validPositions = set((x, y) for x in range(width) for y in range(height))
+startTime = time.perf_counter()
+for i in range(3451-1024):
+    print(f"{i+1024}/{3450+1024}")
+    currentCorruptedTiles.add(corruptedTiles[i+1024])
     queue = [(0, (0, 0), 3)]
-    seenTiles = []
-    backtrack = {}
-    endState = ((0, 0), (0, 0))
+    seenTiles = set()
     test = 0
     finished = False
     while queue:
@@ -53,7 +42,7 @@ for i in range(3451):
         if pos in seenTiles:
             continue
         else:
-            seenTiles.append(pos)
+            seenTiles.add(pos)
 
         if pos == (width - 1, height - 1):
             endState = (pos, dir)
@@ -61,17 +50,17 @@ for i in range(3451):
             print(cost)
             break
 
-
-
-        for newCost, newPos, newDir in [(cost+1, AddTuple(pos, directions[dir]), dir), (cost+1, AddTuple(pos, directions[GetNextDirection(dir, -1)]), GetNextDirection(dir, -1)), (cost+1, AddTuple(pos, directions[GetNextDirection(dir, 1)]), GetNextDirection(dir, 1))]:
-            if IsInRange(newPos):
-                if newPos in currentCorruptedTiles:
-                    continue
-            else:
+        for newDir in range(len(directions)):
+            newPos = AddTuple(pos, directions[newDir])
+            newCost = cost + 1
+            if newPos in seenTiles or not newPos in validPositions:
                 continue
-
-            backtrack[(newPos, newDir)] = (pos, dir)
+            if newPos in currentCorruptedTiles:
+                continue
             heapq.heappush(queue, (newCost, newPos, newDir))
     if not finished:
-        print(currentCorruptedTiles[len(currentCorruptedTiles)-1])
+        endTime = time.perf_counter()
+        print(corruptedTiles[i])
+        elapsedTime = endTime-startTime
+        print (f"Time: {elapsedTime:.6f}")
         break
