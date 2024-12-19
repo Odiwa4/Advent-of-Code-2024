@@ -1,4 +1,5 @@
 import os
+import time
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"day-19 input.txt")
 patterns = []
 towelsToTry = []
@@ -39,9 +40,12 @@ def IsPatternValid(patternString):
     return success
 
 answer = 0
+startTime = time.perf_counter()
 for t, towel in enumerate(towelsToTry):
     result = IsPatternValid(towel)
     print(f"{t + 1} / {len(towelsToTry)}: {result}")
     answer+=result
-
+endTime = time.perf_counter()
+elapsedTime = endTime-startTime
+print(f"Time: {elapsedTime:.6f}")
 print(answer)
