@@ -1,10 +1,20 @@
-**THE ADVENT OF CODE 2024**
-Whether it's misreading the prompt, overcomplicated things considerably, or just plain stupidity, insanity is bound to happen.
+**THE ADVENT OF CODE 2024: JANKY EDITION**
 
-But thats all apart of the christmas spirit!
+Whether it's misreading the prompt, overcomplicated things considerably, or just plain stupidity, insanity is inevitable, but hey with a little too much optimism, a nonexistent sleep schedule, and some good ol' Christmas spirit, anything is possible.
 
-to run any of the scripts just include the puzzle input named the file name the code needs and put it in the relevant day folder.
+To run any of the scripts, just include the puzzle input named the file name the code needs and put it in the relevant day folder.
 
-(oh and for day 6 run the c# version because the others are really really really slow (and the python one is also broken))
+- - -
+**Warning Below Text May Contain Traces of Yapping**:
+- The following code is really janky.
+- Alot of the time I changed the code to work for part 2, and forgot to make a second file. So if you see only one folder there, that's why.
+- Day 14 when run puts 10,000 images into a folder so you have been warned
+- <details>
+  <summary>neat trick for day 14</summary>
+  You can sort by file size to find the tree
+</details>
 
-also some are only set up to work with part 2 so womp womp if you wanted to see part 1 okay ill end the yapping
+- day 15 was done in unity and someone cant be bothered to make a git repository (shame on whoever did that)
+- day 6s python code is broken, the c# however does work
+- uhhh is anyone reading this?
+- oh and last thing my day 12 part 2 solution is **really** weird so just ignore that

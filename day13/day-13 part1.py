@@ -1,9 +1,9 @@
 import os
 import numpy
-import math
+
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)),"day-13 input.txt")
 
-class ClawMachine():
+class ClawMachine:
     def __init__(self, buttonA, buttonB, prize):
         self.buttonA = buttonA
         self.buttonB = buttonB
