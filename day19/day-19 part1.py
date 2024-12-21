@@ -40,12 +40,16 @@ def IsPatternValid(patternString):
     return success
 
 answer = 0
+possible = 0
 startTime = time.perf_counter()
 for t, towel in enumerate(towelsToTry):
     result = IsPatternValid(towel)
     print(f"{t + 1} / {len(towelsToTry)}: {result}")
     answer+=result
+    if result > 0:
+        possible += 1
 endTime = time.perf_counter()
 elapsedTime = endTime-startTime
 print(f"Time: {elapsedTime:.6f}")
-print(answer)
+print(f"Part One: {possible}")
+print(f"Part Two: {answer}")
