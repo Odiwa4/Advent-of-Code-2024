@@ -61,7 +61,7 @@ def ComputeSequences(keypad):
             seqs[(posA, posB)] = possibilities
     return seqs
 
-def solve(string, seqs):
+def Solve(string, seqs):
     options = [seqs[(posA, posB)] for posA, posB in zip("A" + string, string)]
     return ["".join(posA) for posA in product(*options)]
 
@@ -94,7 +94,7 @@ def ComputeLength(seq, depth=25):
 total = 0
 
 for instruction in instructions:
-    inputs = solve(instruction, numSeqs)
+    inputs = Solve(instruction, numSeqs)
     length = min(map(ComputeLength, inputs))
     total += length * int(instruction[:-1])
 
