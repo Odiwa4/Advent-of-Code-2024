@@ -111,10 +111,3 @@ cheats = 0
 startTime = time.perf_counter()
 
 print(len(FindCheats(wallTiles, GetCostsAtPositions(wallTiles))))
-
-'''endTime = time.perf_counter()
-elapsedTime = endTime - startTime
-print (f"Time: {elapsedTime:.6f}")
-print(cheats)
-print(answer)
-print(GetCostsAtPositions(wallTiles))'''

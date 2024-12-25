@@ -2,7 +2,6 @@ import os
 import time
 from collections import deque
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "day-23 input.txt")
-groups = set()
 connections = {}
 startTime = time.perf_counter()
 with open(path, 'r') as d:
@@ -17,7 +16,6 @@ with open(path, 'r') as d:
         connections.setdefault(comp2, [])
         if comp1 not in connections[comp2]:
             connections[comp2].append(comp1)
-
 def FindGroups():
     foundGroups = set()
     for index, c in enumerate(connections):
@@ -25,12 +23,9 @@ def FindGroups():
         queue = deque([[c]])
         while queue:
             currentConnections = queue.popleft()
-            if frozenset(currentConnections) in foundGroups:
-                continue
+            if frozenset(currentConnections) in foundGroups: continue
             for p, possibility in enumerate(connections[currentConnections[len(currentConnections)-1]]):
-                if possibility in currentConnections:
-                    continue
-
+                if possibility in currentConnections: continue
                 if not all(possibility in connections[conn] for conn in currentConnections):
                     foundGroups.add(frozenset(currentConnections))
                     break
@@ -39,7 +34,6 @@ def FindGroups():
                     queue.append(tempList)
                     continue
     return list(foundGroups)
-
 foundGroups = list(FindGroups())
 foundGroups = list(map(list, foundGroups))
 foundGroups.sort(key=len, reverse=True)

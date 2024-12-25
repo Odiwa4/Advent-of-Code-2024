@@ -1,11 +1,9 @@
 import os
 leftNum = 0
 rightNum = 0
-
 path = f"{os.path.join(os.path.dirname(os.path.abspath(__file__)),"day-1 input.txt")}"
 puzzle_input = ""
-import sys
-sys.set_int_max_str_digits(0)
+
 with open (path, 'r') as d:
     puzzle_input = d.read()
     d.close()
@@ -25,5 +23,4 @@ def part2():
         similarity += num * count * second[num]
 
     return similarity
-
 print(part2())
