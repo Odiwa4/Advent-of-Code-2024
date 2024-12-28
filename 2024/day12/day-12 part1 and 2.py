@@ -94,7 +94,6 @@ def GetSides(perimeter, letterToFind):
 class Region():
     def __init__(self, pos):
         self.letter = tiles[pos[1]][pos[0]]
-        self.positions = []
         self.areaArray = GetArea(pos, self.letter)
         self.area = len(self.areaArray)
         self.perimeterArray = GetPerimeter(self.areaArray, self.letter)

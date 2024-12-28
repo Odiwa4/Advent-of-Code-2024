@@ -1,16 +1,15 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
-Day6P1.Solve();
 
-class Day6P1
+namespace AOC2024.Day6;
+class Day6P2
 {
-    public static void Solve()
+    public static void Main()
     {
-        //string fileName = "Tday-6 input.txt";
-        string filePath = @"C:\Users\olive\Documents\RCPIMWIB\ADVENT OF CODE 2024\day6\day-6 input.txt";
+        string filePath = Path.Combine(Directory.GetCurrentDirectory(),"input.txt");
         string[] lines = File.ReadAllLines(filePath);
 
         string[,] board = new string[lines[0].Length, lines.Length];
@@ -43,7 +42,6 @@ class Day6P1
             newBoard[(int) o.X, (int) o.Y] = "#";
             if (CausesLoop(startPos, newBoard, 500)){
                 loopCount++;
-                Console.WriteLine(o);
                 continue;
             }
         }

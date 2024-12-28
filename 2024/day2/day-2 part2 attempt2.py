@@ -1,5 +1,4 @@
 import os
-#gotta love vs code making you tell it the actual file path
 path = os.path.join(os.path.dirname(__file__),"day-2 input.txt")
 
 reports = []
