@@ -1,13 +1,14 @@
-**THE ADVENT OF CODE 2024: JANKY EDITION**
+**ADVENT OF CODE: JANKY EDITION**
+-
+Hello this is the code for my advent of code:
 
-This contains *almost* all my code from Advent of Code 2024.
-The only day that wasn't included is day 15 as I did it in unity.
+**2024: Python**
+<small>and a little bit of C#</small>
 
-Also, day 14 puts 10,000 images into a folder, and day 24 uses a semi-manual solution
-using a graph generator tool called GraphViz (check the days comments for more info if you want to run it.)
+This contains all of 2024, (minus day 15 because I made it in unity). Also Day 6 Part 2 was in C# for efficiency (and because I was determined to see my stupid solution work)
 
-I did forget to make a separate file for part 2 on some days and ended up overwriting my part 1 solution so 
-think of it as a sign from the universe to go read a much better solution for that days part.
+day 14 puts 10,000 images in a folder so have fun with that I guess.
 
-P.S. this challenge was fun, even though I went insane on day 24 trying to comprehend a very much
-incomprehensible graph that I generated while trying to figure out what to look for in the first place.
+**2015: C#**
+
+I started this year because I was bored. The first 7 days are there.
